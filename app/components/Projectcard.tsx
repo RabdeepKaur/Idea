@@ -4,9 +4,8 @@ import { EyeIcon } from 'lucide-react';
 import Link from 'next/link';
 
 
-
-const Projectcard = ({post}:{post:Projectcard}) => {
-const {_createAt,views,author:{_id:authorId , name},title,category,description,_id}=post;
+const Projectcard = ({ post }: { post: Projectcard }) => {
+const {_createAt,views,author:{id:authorId , name},title,category,description,id}=post;
 
   return (
     <li className="project-card group">
@@ -43,8 +42,8 @@ const {_createAt,views,author:{_id:authorId , name},title,category,description,_
             <Link href={`/?query=${category.toLowerCase()}`}>
             <p className='text-16-medium'>{category}</p>
             </Link>
-            <button className="project-btn" aschild="true">
-                <Link href={`/project/${_id}`}>
+            <button className="project-btn">
+                <Link href={`/project/${id}`}>
 Detail
 </Link>
             </button>

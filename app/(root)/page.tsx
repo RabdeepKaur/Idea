@@ -1,11 +1,20 @@
 import SearchForm from "../components/SearchForm";
 import Projectcard from "../components/Projectcard";
+import {PrismaClient} from '@prisma/client';
 
 export default async function Home({searchParams}:{
   searchParams: Promise<{query?:string}>
 }) {
   const query =(await searchParams).query;
-
+  const prisma = new PrismaClient();
+  const post = await prisma.post.findMany({
+    include:{
+      author:true
+    }
+  })
+  console.log(JSON.stringify(post,null ,2));
+  
+/*
   const posts=[{
     _createAt:new Date().toISOString(),
     views:5,
@@ -16,7 +25,7 @@ export default async function Home({searchParams}:{
     tags:['tag1','tag2'],
     image:'https://via.placeholder.com/150',
     category:'category',
-  }]
+  }]*/
   return (
     <>
     <section className="pink_container">
@@ -31,14 +40,13 @@ export default async function Home({searchParams}:{
 </p>
 
 <ul className="mt-7 card_gird">
-{posts?.length >0?(
-  posts.map((post:Projectcard,index:number)=>(
-    <Projectcard key={post?._id} post={post}/>
-  ))
-):(
-  <p className="no-result">Oops! We dont have that , it could be a new idea </p>
-)
-}
+{post?.length > 0 ? (
+            post.map((post: Projectcard) => (
+              <Projectcard key={post?.id} post={post} />
+            ))
+          )  : (
+  <p className="no-result">Oops! We don't have that, it could be a new idea</p>
+)}
 </ul>
 </section>
  
