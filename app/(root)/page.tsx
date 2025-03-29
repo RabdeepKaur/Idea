@@ -1,19 +1,30 @@
 import SearchForm from "../components/SearchForm";
 import Projectcard from "../components/Projectcard";
 import {PrismaClient} from '@prisma/client';
+import { Suspense } from "react";
+import { getprojectId, getprojects } from "@/lib/query";
+
+
 
 export default async function Home({searchParams}:{
   searchParams: Promise<{query?:string}>
 }) {
   const query =(await searchParams).query;
   const prisma = new PrismaClient();
+  const allStartups = await getprojects();
+  const post = allStartups;
+
+  const search=await getprojectId(1);
+  console.log(JSON.stringify(search
+    ,null,2));
+/*
   const post = await prisma.post.findMany({
     include:{
-      author:true
+      author:true,
     }
   })
   console.log(JSON.stringify(post,null ,2));
-  
+  */
 /*
   const posts=[{
     _createAt:new Date().toISOString(),
@@ -38,7 +49,7 @@ export default async function Home({searchParams}:{
 <p className ="text-30-semibold">
   {query ?`Search results for ${query}`: 'Latest Projects'}
 </p>
-
+<Suspense fallback={<p>Loading...</p>}>
 <ul className="mt-7 card_gird">
 {post?.length > 0 ? (
             post.map((post: Projectcard) => (
@@ -48,6 +59,7 @@ export default async function Home({searchParams}:{
   <p className="no-result">Oops! We don't have that, it could be a new idea</p>
 )}
 </ul>
+</Suspense>
 </section>
  
     </>

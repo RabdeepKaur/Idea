@@ -69,7 +69,7 @@
   @apply  bg-white border-[5px] border-black py-6 px-5 rounded-[20px] transition-all duration-500 hover:bg-violet-600 flex flex-col gap-5;
 }
 .project_card_date{
-  @apply font-medium text-[16px] bg-[#FFE8F0] px-4 py-2 rounded-full 
+  @apply font-medium text-[16px] bg-[#FFE8F0] px-4 py-2 rounded-full ;
 }
 .project_card_title{
   @apply font-bold text-[24px] text-black;
