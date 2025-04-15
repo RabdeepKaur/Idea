@@ -56,18 +56,22 @@ const author = await getAuthorById(post.authorId);
               className="flex gap-2 items-center mb-3"
             >
               
-              <Image
-                src={author.image?? undefined}
-                alt="avatar"
-                width={64}
-                height={64}
-                className="rounded-full drop-shadow-lg"
-              />
+              {author ? (
+                <Image
+                  src={author.image ?? '/default-avatar.png'}
+                  alt="avatar"
+                  width={64}
+                  height={64}
+                  className="rounded-full drop-shadow-lg"
+                />
+              ) : (
+                <p>No author information available</p>
+              )}
 
               <div>
-                <p className="text-20-medium">{author.name}</p>
+                {author && <p className="text-20-medium">{author.author.name}</p>}
                 <p className="text-16-medium !text-black-300">
-                  @{author.username}
+                  @{author ? author.author.githubUsername || 'Unknown' : 'Unknown'}
                 </p>
               </div>
             </Link>

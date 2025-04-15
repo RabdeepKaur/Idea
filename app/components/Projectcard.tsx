@@ -4,7 +4,21 @@ import { EyeIcon } from 'lucide-react';
 import Link from 'next/link';
 
 
-const Projectcard = ({ post }: { post: Projectcard }) => {
+interface ProjectCardProps {
+  _id: any;
+  _createAt: string;
+  views: number;
+  author: {
+    id: string;
+    name: string;
+  };
+  title: string;
+  category: string;
+  description: string;
+  id: string;
+}
+
+const Projectcard = ({ post }: { post: ProjectCardProps }) => {
 const {_createAt,views,author:{id:authorId , name},title,category,description,id}=post;
 
   return (
