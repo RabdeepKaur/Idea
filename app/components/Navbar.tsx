@@ -21,7 +21,7 @@ const Navbar = async () => {
           <Link href="/discover/project">
             <span className="text-black hover:text-yc-pink transition-colors">Discover</span>
           </Link>
-          <Link href="/about-us">
+          <Link href="/about">
             <span className="text-black hover:text-yc-pink transition-colors">About Us</span>
           </Link>
           {session && session?.user && (

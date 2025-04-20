@@ -23,8 +23,8 @@ const {_createAt,views,author:{id:authorId , name},title,category,description,id
 
   return (
     <>
-    <div className='card_grid px-10 py-5'>
-    <li className="project_card  py-4">
+    <div className='  card_grid px-10 py-5'>
+    <li className="  project_card  py-4">
 <div className='flex-between'>
     <p className='project_card_date'>
         { formatDate(_createAt)}

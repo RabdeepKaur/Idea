@@ -73,8 +73,9 @@ const Page = async () => {
   }));
 
   return (
+    <>
     <div>
-      <ul className="card_gird mt-7" >
+      <ul className="card_gird-sm mt-7" >
         {mappedProjects.length > 0 ? (
           mappedProjects.map((project) => (
             <Projectcard
@@ -87,6 +88,7 @@ const Page = async () => {
         )}
       </ul>
     </div>
+    </>
   )
 }
 

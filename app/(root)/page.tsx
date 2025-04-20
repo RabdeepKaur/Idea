@@ -9,6 +9,7 @@ import Button from "../components/Button";
 
 
 
+
 export default async function Home({searchParams}:{
   searchParams: Promise<{query?:string}>
 }) {
@@ -108,7 +109,7 @@ export default async function Home({searchParams}:{
   {query ?`Search results for ${query}`: 'Latest Projects'}
 </p>
 <Suspense fallback={<p>Loading...</p>}>
-<ul className="mt-7 card_gird">
+<ul className="mt-7 card_gird-sm">
 {post?.length > 0 ? (
             post.map((post: { id: number; [key: string]: any }) => (
               <Projectcard
@@ -132,7 +133,7 @@ export default async function Home({searchParams}:{
 </ul>
 </Suspense>
 </section>
- 
+
     </>
   );
 }
