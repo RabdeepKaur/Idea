@@ -1,9 +1,12 @@
+
 import SearchForm from "../components/SearchForm";
 import Projectcard from "../components/Projectcard";
 import {PrismaClient} from '@prisma/client';
-import { Suspense } from "react";
+import { Suspense  } from "react";
 import { getprojectId, getprojects } from "@/lib/query";
-import { Sparkles, Users, LineChart } from "lucide-react"
+import { Sparkles, Users, LineChart } from "lucide-react";
+import Button from "../components/Button";
+
 
 
 export default async function Home({searchParams}:{
@@ -28,6 +31,8 @@ export default async function Home({searchParams}:{
   const search=await getprojectId(1);
   console.log(JSON.stringify(search
     ,null,2));
+
+   
 /*
   const post = await prisma.post.findMany({
     include:{
@@ -80,12 +85,12 @@ export default async function Home({searchParams}:{
 
 
 {/*button*/}
-<div className="flex justify-center items-center mt-5 mb-5 ">
-    <button className="bg-black hover:bg-yc-pink-dark text-white text-lg px-4 py-3 h-auto rounded-full transition-all transform hover:scale-105">
-Submit your idea 
-    </button>
 
+<div className="flex justify-center items-center mt-5 mb-5 ">
+   <Button></Button>
+  
 </div>
+
 
     <div className="mt-5"> 
     <p className="text-white !max-w-20xl"> Sumbit your idea , collabrate  with developers , get feedback and track your progress  </p>
@@ -98,7 +103,7 @@ Submit your idea
 {/* search bar */}
     <SearchForm query={query}/>
 
-<section className="section-container ">
+<section className="section-container  py-10 px-5 md:px-10 lg:px-20">
 <p className ="text-30-semibold ">
   {query ?`Search results for ${query}`: 'Latest Projects'}
 </p>

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import {auth, signOut, signIn} from "@/auth";
-import { getProviders } from "next-auth/react"
+
 
 const Navbar = async () => {
   const session = await auth();
@@ -18,7 +18,7 @@ const Navbar = async () => {
         
         {/* Center section - Navigation links*/ }
         <div className="hidden md:flex items-center space-x-8">
-          <Link href="/discover">
+          <Link href="/discover/project">
             <span className="text-black hover:text-yc-pink transition-colors">Discover</span>
           </Link>
           <Link href="/about-us">

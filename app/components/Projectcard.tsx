@@ -22,12 +22,14 @@ const Projectcard = ({ post }: { post: ProjectCardProps }) => {
 const {_createAt,views,author:{id:authorId , name},title,category,description,id}=post;
 
   return (
-    <li className="project-card group">
+    <>
+    <div className='card_grid px-10 py-5'>
+    <li className="project_card  py-4">
 <div className='flex-between'>
     <p className='project_card_date'>
         { formatDate(_createAt)}
     </p>
-    <div className="flex gap-1.5">
+    <div className="flex gap-1.5 items-center">
         <EyeIcon className="size-[6px] text-black"/>
         <span className='text-16-medium'>{views}</span>
     </div>
@@ -39,7 +41,7 @@ const {_createAt,views,author:{id:authorId , name},title,category,description,id
         </Link>
        
        <Link href={`/project/${post._id}`}>
-         <h3 className='text-20-semibold line-clamp-1'>{title}</h3>
+         <h3 className='project_card_title line-clamp-1'>{title}</h3>
          </Link>
 
          <Link href={`/project/${authorId}`}>
@@ -52,7 +54,7 @@ const {_createAt,views,author:{id:authorId , name},title,category,description,id
 
          <img src="https://via.placeholder.com/150" alt="project"  className="project-card_img"/>
 
-         <div className="flex-between gap-3 mt-5">
+         <div className="flex justify-between  items-center gap-3 mt-5">
             <Link href={`/?query=${category.toLowerCase()}`}>
             <p className='text-16-medium'>{category}</p>
             </Link>
@@ -66,7 +68,9 @@ Detail
     </div>
 </div>
     </li>
-  )
+    </div>
+    </>
+  );
 }
 
 export default Projectcard
