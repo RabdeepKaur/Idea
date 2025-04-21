@@ -33,6 +33,9 @@
 .pink_container{
     @apply bg-pink-500 w-full min-h-[580px] flex justify-center items-center flex-col py-10 py-6 text-white;
 }
+.pink_container2{
+  @apply bg-pink-500 w-full min-h-[80px] flex justify-center items-center flex-col py-10 py-6 text-white;
+}
 .tag{
   @apply bg-[#FBE843] px-6 py-3 font-sans font-bold rounded-sm uppercase relative ;
 }

@@ -9,7 +9,7 @@ interface ProjectCardProps {
   _createAt: string;
   views: number;
   author: {
-    id: string;
+   id: string;
     name: string;
   };
   title: string;
