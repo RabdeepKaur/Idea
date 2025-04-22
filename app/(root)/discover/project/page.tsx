@@ -2,7 +2,7 @@ import Projectcard from '@/app/components/Projectcard'
 import React from 'react'
 import { prisma } from '@/lib/prisma'
 import { getprojectId, getprojects } from "@/lib/query";
-
+import DiscoverSearch from '@/app/components/DiscoverSearch'
 const page =  async () => {
   const posts = await prisma.post.findMany(({
     include: {
@@ -27,7 +27,7 @@ const page =  async () => {
   return (
     <div>
       <section className="pink_container2">
-
+<DiscoverSearch/>
       </section>
     <ul className="mt-7 card_gird-sm">
 {posts?.length > 0 ? (

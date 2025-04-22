@@ -66,7 +66,7 @@ export default async function Home({searchParams}:{
             <div className="bg-black rounded-full p-3">
               <Sparkles className="text-white" size={28} />
             </div>
-            <p className="mt-3 text-white font-medium text-lg">Inspire Others</p>
+            <p className="mt-3 text-white font-medium text-lg">Pitch your idea </p>
           </div>
           
           <div className="flex flex-col items-center">
