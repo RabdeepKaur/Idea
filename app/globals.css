@@ -86,6 +86,12 @@
 .project-btn{
   @apply rounded-full bg-black font-medium text-[16px] text-white px-5 py-3
 }
+
+
+.search-form {
+  @apply max-w-3xl w-full min-h-[80px] bg-white border-[5px] border-black rounded-[80px] text-[24px] mt-8 px-5 flex flex-row items-center gap-5;
+}
+
 }
 :root {
     --radius: 0.625rem;

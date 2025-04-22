@@ -3,6 +3,8 @@ import React from 'react'
 import { prisma } from '@/lib/prisma'
 import { getprojectId, getprojects } from "@/lib/query";
 import DiscoverSearch from '@/app/components/DiscoverSearch'
+
+
 const page =  async () => {
   const posts = await prisma.post.findMany(({
     include: {

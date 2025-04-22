@@ -1,14 +1,48 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState,useActionState } from 'react';
 import MDEditor from '@uiw/react-md-editor';
+import { formScehma } from "@/lib/Validation"; // Adjusted the path to match the correct location
+import {z} from "zod"
+
 
 const Startup = () => {
   const [error, setErrors] = useState<Record<string, string>>({});
 const [pitch,setPitch]= useState("** hello world**")
 
-const isPending=false
+//
+const handleFormSubmit=async (prevState:any,formData:FormData)=>{
+  try{
+const formValues={
+  title:formData.get("title" ) as string,
+  description:formData.get("description") as string,
+  category:formData.get("category") as string,
+  link:formData.get("Link") as string,
+  pitch,
+}
+
+await formScehma.parseAsync(formValues);
+
+//nst result=await createDiffieHellman(prevState,formData,pitch);
+console.log(formValues)
+  }catch(error){
+if(error  instanceof z.ZodError){
+    const fieldErorrs = error.flatten().fieldErrors;
+  setErrors(fieldErorrs as unknown as Record<string,string>);
+  return {...prevState,error:"Validation failed",status:"ERROR"};
+}
+  } return{
+    ...prevState,
+  }
+};
+const initialState = {
+  error: "",
+  status: "INITIAL",
+};
+
+const [state, formAction, isPending] = useActionState(handleFormSubmit, initialState);
+
   return (
-   <form action={()=>{}} className='startup-form'>
+   <form action={formAction} className='startup-form'>
     <div>
 <label htmlFor="title" className='="startup-form_label'>Title </label>
 <input
@@ -90,11 +124,16 @@ previewOptions={{
 {error.pitch && <p className="startup-from_error">{error.pitch}</p>}
 </div>
 <div>
-<button type="submit" className="startup-form_btn" disabled={isPending}>{isPending?"Submitting..." :"Submited"}Live </button>
+<button
+  type="submit"
+  className="  @apply rounded-full bg-black/20 font-medium text-[16px] text-white px-5 py-3;  "
+  disabled={isPending}
+>
+  {isPending ? "Submitting..." : "Submit"}
+</button>
 </div>
    </form>
       
-    
   )
 }
 
