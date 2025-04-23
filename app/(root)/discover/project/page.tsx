@@ -29,7 +29,7 @@ const page =  async () => {
   return (
     <div>
       <section className="pink_container2">
-<DiscoverSearch/>
+<DiscoverSearch activeStatus={undefined} onStatusToggle={undefined} activeCategory={undefined} onCategoryToggle={undefined}/>
       </section>
     <ul className="mt-7 card_gird-sm">
 {posts?.length > 0 ? (

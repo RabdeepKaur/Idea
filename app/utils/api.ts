@@ -4,5 +4,6 @@ export const getPosts=async()=>{
         headers:{
         "Content-Type":"application/json",
         },
-    );
-};
+      });
+return res;
+    }

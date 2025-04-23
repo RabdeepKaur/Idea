@@ -44,7 +44,8 @@ const [state, formAction, isPending] = useActionState(handleFormSubmit, initialS
   return (
    <form action={formAction} className='startup-form'>
     <div>
-<label htmlFor="title" className='="startup-form_label'>Title </label>
+<label htmlFor="title" className="startup-form_label">Title </label>
+<br/>
 <input
 id="title"
 name="title"
@@ -56,7 +57,8 @@ placeholder="startup Title"
 </div>
 
 <div>
-<label htmlFor="description" className='="startup-form_label'>description </label>
+<label htmlFor="description" className="startup-form_label">description </label>
+<br/>
 <input
 id="descritption"
 name="description"
@@ -69,6 +71,7 @@ placeholder="startup description"
 
 <div>
 <label htmlFor="category" className='startup-form_label'>Category </label>
+<br/>
 <input
 id="category"
 name="category"
@@ -81,6 +84,7 @@ placeholder="startup category"
 
 <div>
 <label htmlFor="link" className='startup-form_label'>Cover Image </label>
+<br/>
 <input
 id="Link"
 name="Link"
@@ -93,6 +97,7 @@ placeholder="startup Link"
 
 <div>
 <label htmlFor="github" className='startup-form_label'>Github</label>
+<br/>
 <input
 id="Github"
 name="Github"
@@ -126,7 +131,7 @@ previewOptions={{
 <div>
 <button
   type="submit"
-  className="  @apply rounded-full bg-black/20 font-medium text-[16px] text-white px-5 py-3;  "
+  className=" startup-form_btn text-white "
   disabled={isPending}
 >
   {isPending ? "Submitting..." : "Submit"}
