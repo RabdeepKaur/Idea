@@ -3,11 +3,9 @@ import React ,{useState}from 'react'
 import SearchForm from './SearchForm'
 
 const STATUS_OPTIONS=[
-    {value:"Category",label:"Category"},
     {value:"need-contribution",label:"Need Contribution"},
     {value:"feedback",label:"Feedback"},
-    {value:"build-together",label:"Build Together"},
-    {value:"Status",label:"Status"},
+    {value:"build-together",label:"Build Together"},  
 ]
 const CATEGORIES=[
 {value:"AI",label:"AI"},
@@ -65,7 +63,6 @@ setStatustValue(e.target.value);
   return (
     
     <div className='flex flex-wrap gap-5 items-center justify-between'>
-      <SearchForm/>
  <div className="flex-1 flex gap-3 flex-wrap items-center">
 <select value ={selectStatus} 
 onChange={handleStatuschange} 

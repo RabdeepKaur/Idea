@@ -1,18 +1,22 @@
 import Projectcard from '@/app/components/Projectcard'
 import React from 'react'
-import { prisma } from '@/lib/prisma'
+import { prisma } from '@/utils/prisma'
+import { Suspense  } from "react";
 import { getprojectId, getprojects } from "@/lib/query";
 import DiscoverSearch from '@/app/components/DiscoverSearch'
+import SearchForm from "@/app/components/SearchForm";
 
 
-const page =  async () => {
+const page =  async ({searchParams}:{
+  searchParams: Promise<{query?:string}>
+}) => {
   const posts = await prisma.post.findMany(({
     include: {
       author: true, // this pulls in { id, name, ... } from the User model
     },
   }));
   const allStartups = await getprojects();
-  
+  const query =(await searchParams).query;
   const post = allStartups.map((startup) => ({
     ...startup,
     _id: startup.id,
@@ -27,10 +31,19 @@ const page =  async () => {
   }));
 
   return (
+    <>
     <div>
+      <div>
       <section className="pink_container2">
 <DiscoverSearch activeStatus={undefined} onStatusToggle={undefined} activeCategory={undefined} onCategoryToggle={undefined}/>
-      </section>
+<SearchForm query={query}/>
+  
+</section>
+</div>
+<div className=" px-[30px] text-30-semibold justify-center text-center mt-5">
+{query ?`Search results for ${query}`: 'Latest Projects'}
+</div>
+      <Suspense fallback={<p>Loading...</p>}>
     <ul className="mt-7 card_gird-sm">
 {posts?.length > 0 ? (
             posts.map((post: { id: number; [key: string]: any }) => (
@@ -53,7 +66,10 @@ const page =  async () => {
   <p className="no-result">Oops! We don't have that, it could be a new idea</p>
 )}
 </ul>
+</Suspense>
       </div>
+    
+      </>
   )
 }
 

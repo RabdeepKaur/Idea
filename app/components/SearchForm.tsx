@@ -6,7 +6,7 @@ import SearchFormReset from './SearchFormReset'
 const SearchForm = ({ query }:{query?:string}) => {
   return (
     <div className="flex justify-center w-full">
-      <Form action="/" scroll={false} className='search-form flex items-center w-full max-w-md'>
+      <Form action="/discover/project" scroll={false} className='search-form flex items-center w-full max-w-md'>
         <input
           type="text"
           name="query"

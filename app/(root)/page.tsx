@@ -6,6 +6,7 @@ import { Suspense  } from "react";
 import { getprojectId, getprojects } from "@/lib/query";
 import { Sparkles, Users, LineChart } from "lucide-react";
 import Button from "../components/Button";
+import Transition from "../components/Transition";
 
 
 
@@ -58,32 +59,34 @@ export default async function Home({searchParams}:{
     <>
     <section className="pink_container">
     <h1 className="heading">Pitch your idea ,
-      <br /> collabrate  and learn together 
+      <br /> collabrate  and learn together {/*clock motion diaply one after another automatically */}
     </h1>
     {/* do i need to add link to these ?*/}  
+    <Transition>
     <div className="mt-8 md:mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 ">
           <div className="flex flex-col items-center">
             <div className="bg-black rounded-full p-3">
               <Sparkles className="text-white" size={28} />
             </div>
-            <p className="mt-3 text-white font-medium text-lg">Pitch your idea </p>
-          </div>
-          
+            <p className="mt-3 text-white font-medium text-lg">Pitch your idea </p>{/*here exit motion apon scroll*/}
+            
+            </div>
+         
           <div className="flex flex-col items-center">
             <div className="bg-black rounded-full p-3">
               <Users className="text-white" size={28} />
             </div>
-            <p className="mt-3 text-white font-medium text-lg" >Work with Developers</p>
+            <p className="mt-3 text-white font-medium text-lg" >Work with Developers</p>{/*here exit motion apon scroll*/}
           </div>
           
           <div className="flex flex-col items-center">
             <div className="bg-black rounded-full p-3">
               <LineChart className="text-white" size={28} />
             </div>
-            <p className="mt-3 text-white font-medium text-lg">Track Progress</p>
+            <p className="mt-3 text-white font-medium text-lg">Track Progress</p>{/*here exit motion apon scroll*/}
           </div>
         </div>
-
+        </Transition>
 
 {/*button*/}
 
@@ -100,8 +103,26 @@ export default async function Home({searchParams}:{
 
     </section>
 
+<div className="text-center mt-10 mb-10">
+<h1>What do  we do ?</h1>
+</div>
 
-{/* search bar */}
+<div className="flex flex-col md:flex-row justify-center items-center gap-5 mt-10 mb-10">
+  <div className="flex items-stretch">Image </div>
+  <div className="flex items-stretch">Got a cool idea? Launching your first solo app? Let the world know! We help you share it in a way that grabs attention and gets people excited.Pitch and create your big moment.
+</div>
+</div>
+<div className="flex flex-col md:flex-row justify-center items-center gap-5 mt-10 mb-10">
+  <div className="flex items-stretch">text </div>
+  <div className="flex items-stretch"> Tired of hunting for cool open-source projects?Dive into projects that actually excite you.—just check for the  "want contribution" tags, and jump right in. Contribute, connect, and grow with a community that builds together.
+
+</div>
+</div>
+<div className="flex flex-col md:flex-row justify-center items-center gap-5 mt-10 mb-10">
+  <div className="flex items-stretch">image  </div>
+  <div className="flex items-stretch">  Sometimes all you need is a fresh set of eyes. Get real feedback from the community, discover new ideas, and unlock new depth in your project. The right feedback might be exactly what you need to make your project awesome again. </div>
+</div>
+{/* search bar 
     <SearchForm query={query}/>
 
 <section className="section-container  py-10 px-5 md:px-10 lg:px-20">
@@ -133,7 +154,7 @@ export default async function Home({searchParams}:{
 </ul>
 </Suspense>
 </section>
-
+*/}
     </>
   );
 }

@@ -1,6 +1,6 @@
 import markdownit from 'markdown-it'
 import React from 'react'
-import { prisma } from '@/lib/prisma';
+import { prisma } from '@/utils/prisma';
 import { formatDate } from '@/lib/utils';
 import { getprojects,getprojectId,getAuthorById } from '@/lib/query';
 import Link from 'next/link';
