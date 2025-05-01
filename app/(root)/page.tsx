@@ -62,7 +62,10 @@ export default async function Home({searchParams}:{
       <br /> collabrate  and learn together {/*clock motion diaply one after another automatically */}
     </h1>
     {/* do i need to add link to these ?*/}  
-    <Transition>
+    <Transition
+    initial={{scale:0.5,opacity:0}}
+    animate={{scale:1,opacity:1}}
+    transition={{duration:0.6}}>
     <div className="mt-8 md:mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 ">
           <div className="flex flex-col items-center">
             <div className="bg-black rounded-full p-3">
@@ -102,26 +105,47 @@ export default async function Home({searchParams}:{
 
 
     </section>
-
-<div className="text-center mt-10 mb-10">
-<h1>What do  we do ?</h1>
+    <section className="">
+    <Transition
+    initial ={{x: -100 ,opacity:0}}
+    animate={{x:0,opacity:1}}
+    transition={{duration:1}}>
+<div className="text-center mt-10 mb-10 ">
+<h1 className="text-6xl font-bold work-sans p-10 mb-20">What do  we do ?</h1>
 </div>
-
-<div className="flex flex-col md:flex-row justify-center items-center gap-5 mt-10 mb-10">
-  <div className="flex items-stretch">Image </div>
-  <div className="flex items-stretch">Got a cool idea? Launching your first solo app? Let the world know! We help you share it in a way that grabs attention and gets people excited.Pitch and create your big moment.
+</Transition>
+<Transition
+    initial={{scale:0.5,opacity:0}}
+    animate={{scale:1,opacity:1}}
+    transition={{duration:0.6}}>
+<div className="flex bg-white work-sans justify-center item-center mb-30"><h1 className="text-3xl font-semibold"> Don't just build it. Brag a little. We got you. </h1></div></Transition>
+<div className="flex flex-col md:flex-row justify-center items-center gap-50 mt-10 mb-10 p-6">
+  <div className="p-10 bg-white border border-gray-300 rounded-lg shadow-md max-w-xl work-sans ">Image </div>
+  
+  <div className=" text-xl p-10 bg-gray-200 border border-gray-300 rounded-lg shadow-md max-w-xl work-sans">Got a cool idea? Launching your first solo app? Let the world know! We help you share it in a way that grabs attention and gets people excited.
 </div>
 </div>
-<div className="flex flex-col md:flex-row justify-center items-center gap-5 mt-10 mb-10">
-  <div className="flex items-stretch">text </div>
-  <div className="flex items-stretch"> Tired of hunting for cool open-source projects?Dive into projects that actually excite you.—just check for the  "want contribution" tags, and jump right in. Contribute, connect, and grow with a community that builds together.
-
+<Transition
+    initial={{scale:0.5,opacity:0}}
+    animate={{scale:1,opacity:1}}
+    transition={{duration:0.6}}>
+<div className="flex bg-white work-sans justify-center item-center"><h1 className="text-3xl font-semibold"> That feeling when you finally find an open-source project you vibe with  </h1></div></Transition>
+<div className="flex flex-col md:flex-row justify-center items-center gap-50 mt-10 mb-10">
+  <div className="  p-10 bg-white border border-gray-300 rounded-lg shadow-md max-w-xl work-sans">text </div>
+  <div className=" text-xl p-10 bg-gray-200 border border-gray-300 rounded-lg shadow-md max-w-xl work-sans"> Tired of hunting for cool open-source projects?Dive into projects that actually excite you.—just check for the  "want contribution" tags, and jump right in. Contribute, connect, and grow with a community that builds together.
 </div>
 </div>
-<div className="flex flex-col md:flex-row justify-center items-center gap-5 mt-10 mb-10">
-  <div className="flex items-stretch">image  </div>
-  <div className="flex items-stretch">  Sometimes all you need is a fresh set of eyes. Get real feedback from the community, discover new ideas, and unlock new depth in your project. The right feedback might be exactly what you need to make your project awesome again. </div>
+<Transition
+    initial={{scale:0.5,opacity:0}}
+    animate={{scale:1,opacity:1}}
+    transition={{duration:0.6}}>
+<div className="flex bg-white work-sans justify-center item-center"><h1 className="text-3xl font-semibold"> Your side project called—it wants feedback and a little less procatination</h1></div></Transition>
+<div className="flex flex-col md:flex-row justify-center items-center gap-50 mt-10 mb-10">
+  
+  <div className="p-10 bg-white border border-gray-300 rounded-lg shadow-md max-w-xl work-sans">image  </div>
+  <div className="text-xl p-10 bg-gray-200 border border-gray-300 rounded-lg shadow-md max-w-xl work-sans">  Sometimes all you need is a fresh set of eyes. Get real feedback from the community, discover new ideas, and unlock new depth in your project. The right feedback might be exactly what you need to make your project awesome again. </div>
 </div>
+</section>
 {/* search bar 
     <SearchForm query={query}/>
 

@@ -1,32 +1,37 @@
-"use client"
-import React,{useRef} from 'react';
-import {motion} from 'framer-motion'
-import {useInView } from 'framer-motion'
+"use client";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 interface TransitionProps {
   children: React.ReactNode;
+  initial?: import("framer-motion").TargetAndTransition;
+  animate?: import("framer-motion").TargetAndTransition;
+  exit?: import("framer-motion").TargetAndTransition;
+  transition?: import("framer-motion").Transition;
+  className?: string;
 }
 
-const Transition = ({ children }: TransitionProps) => {
-  const ref=useRef(null);
-  const isInView=useInView(ref,{once:false});
+const Transition = ({
+  children,
+  initial = { y: 50, opacity: 0 },
+  animate = { y: 0, opacity: 1 },
+  transition = { duration: 0.8, ease: "easeOut" },
+  className = "",
+}: TransitionProps) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false });
 
-
-  
   return (
-    <div>
-      <motion.div
+    <motion.div
       ref={ref}
-      initial={{ y: 0, opacity: 1 }}
-      animate={isInView ? { y: 0, opacity: 1 } : { y: 1000, opacity: 0 }} // exit down on scroll out
-      transition={{ duration: 1.0, ease: "easeOut" }}
+      initial={initial}
+      animate={isInView ? animate : initial}
+      transition={transition}
+      className={className}
     >
       {children}
     </motion.div>
+  );
+};
 
-
-    </div>
-  )
-}
-
-export default Transition
+export default Transition;
