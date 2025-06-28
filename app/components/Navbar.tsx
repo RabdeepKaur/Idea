@@ -1,5 +1,5 @@
 
-import Image from 'next/image'
+
 import Link from 'next/link'
 import React from 'react'
 import {auth, signOut, signIn} from "@/auth";
@@ -9,24 +9,24 @@ const Navbar = async () => {
   const session = await auth();
   
   return (
-    <header className="px-5 py-3 bg-white shadow-sm font-work-sans">
+    <header className="px-5 py-3  text-white bg-transparent shadow-sm font-work-sans">
       <nav className="flex justify-between items-center">
         {/* Left section - Logo*/ }
         <Link href="/">
-          <Image className='h-15 w-15 rounded-full' src="/logo1.png" alt="logo" width={144} height={30} />
+          <span className='text-white'  >IDEA </span>
         </Link>
         
         {/* Center section - Navigation links*/ }
         <div className="hidden md:flex items-center space-x-8">
           <Link href="/discover/project">
-            <span className="text-black hover:text-yc-pink transition-colors">Discover</span>
+            <span className=" hover:text-yc-pink transition-colors">Discover</span>
           </Link>
           <Link href="/about">
-            <span className="text-black hover:text-yc-pink transition-colors">About Us</span>
+            <span className=" hover:text-yc-pink transition-colors">About Us</span>
           </Link>
           {session && session?.user && (
             <Link href="/startup/create">
-              <span className="text-black hover:text-yc-pink transition-colors">Create</span>
+              <span className=" hover:text-yc-pink transition-colors">Create</span>
             </Link>
           )}
         </div>
@@ -42,7 +42,7 @@ const Navbar = async () => {
                 }}
               >
                 <button type="submit">
-                  <span className="max-sm:hidden">Logout</span>
+                  <span className=" text-white max-sm:hidden">Logout</span>
                 </button>
               </form>
               <Link href={`/user/${session?.user?.id}`}>
@@ -56,7 +56,7 @@ const Navbar = async () => {
                 await signIn("Github");
               }}
             >
-              <button type="submit">Login</button>
+              <button type="submit" className='text-white'>Login</button>
             </form>
           )}
         </div>

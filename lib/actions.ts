@@ -1,10 +1,9 @@
 "use server"
-{/*}
+
 import { parseServerActionResponse } from "./utils";
 import { getSession } from "next-auth/react"; // Import getSession to retrieve session
-import { prisma } from "@/lib/prisma";
+import { prisma } from "../prisma"; // Ensure prisma is imported correctly
 import slugify  from "slugify";
-import { parse } from "path";
 
 
 export const createPitch = async (
@@ -64,13 +63,4 @@ export const createPitch = async (
         status: "ERROR",
       });
     }
-  };*/}
- export const saveUser= async(
-  prevState:{erroe:boolean,success:boolean},
-  payload:{formData:FormData}
- )=>{
-  const{formData}=payload;
-  const feilds=Object.fromEntries(formData) as Record<string,string>;
-  console.log(feilds)
-  return{error:false,success:true}
- }
+  };

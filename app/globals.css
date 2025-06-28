@@ -31,7 +31,7 @@
   @apply text-[26px] font-semibold text-black;
 }
 .pink_container{
-    @apply bg-pink-500 w-full min-h-[580px] flex justify-center items-center flex-col py-10 py-6 text-white;
+@apply bg-black flex flex-col justify-center items-center text-7xl md:text-6xl font-bold p-10 mb-20 mt-30
 }
 .pink_container2{
   @apply bg-pink-500 w-full min-h-[80px] flex justify-center items-center flex-col py-10 py-6 text-white;
@@ -232,6 +232,6 @@
     @apply border-border outline-ring/50;
     }
   body {
-    @apply bg-background bg-pink-100 text-foreground;
+    @apply bg-black
     }
 }
